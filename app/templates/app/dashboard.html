@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl">
+    <head>
+        <title>داشبورد</title>
+        <link rel="stylesheet" href="{% static 'app/styles/base.css' %}">
+    </head>
+    <body>
+        {% if user_found %}
+        <header>
+            <div class="nav-container">
+                <nav>
+                    <ul>
+                        <li><a class="active" href="#">داشبورد</a></li>
+                        <li><a href="/drivers/">رانندگان</a></li>
+                        <li><a href="/cars/">ماشین آلات</a></li>
+                        <!-- <li><a href="/cars/">آلارم ها</a></li>
+                        <li><a href="/cars/">چت ها</a></li>
+                        <li><a href="/cars/">وظایف</a></li> -->
+                        <li class="logout"><a href="/logout/">خروج</a></li> 
+                    </ul>
+                </nav>
+
+                <!-- <img src="" alt="logo" class="logo"> --bigger projects and i have to craete a link ok?>-->
+
+            </div>
+        </header> 
+
+        <div class="body">
+            <h1>داشبورد</h1>
+
+            <div class="user-name">
+                <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+            </div>
+
+            <!-- <div class="accessibility-level">
+                    <h3>سطح دسترسی: متوسط</h3>
+            </div> -->
+        </div>
+        {% else %} 
+        <p>لطفا ابتدا وارد شوید.</p>
+        {% endif %}    
+    </body>
+</html>

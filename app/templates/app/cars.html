@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl">
+    <head>
+        <title>ماشین آلات</title>
+        <link rel="stylesheet" href="{% static 'app/styles/base.css' %}">
+        <link rel="stylesheet" href="{% static 'app/styles/cars-page.css' %}">
+    </head>
+    <body>
+        <header>
+            <div>
+                <nav>
+                    <ul>
+                        <li><a href="/dashboard/">داشبورد</a></li>
+                        <li><a href="/drivers/">رانندگان</a></li>
+                        <li><a class="active" href="#">ماشین آلات</a></li>
+                        <!-- <li><a href="/cars/">آلارم ها</a></li>
+                        <li><a href="/cars/">چت ها</a></li>
+                        <li><a href="/cars/">وظایف</a></li> -->
+                        <li class="logout"><a href="/logout/">خروج</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="body">
+            <h1>ماشین آلات</h1>
+            
+            <div class="truck">
+                <p><button><a href="/trucks/">کشنده</a></button></p>
+            </div>
+
+            <div class="bogie">
+                <p><button><a href="/bogies/">بوژی</a></button></p>
+            </div>
+
+        </div>  
+    </body>
+</html>

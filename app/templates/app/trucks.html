@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl">
+    <head>
+        <title>کشنده ها</title>
+        <link rel="stylesheet" href="{% static 'app/styles/base.css' %}">
+        <link rel="stylesheet" href="{% static 'app/styles/driver-card.css' %}">
+    </head>
+    <body>
+        <header>
+            <div>
+                <nav>
+                    <ul>
+                        <li><a href="/dashboard/">داشبورد</a></li>
+                        <li><a href="/drivers">رانندگان</a></li>
+                        <li><a href="/cars/">ماشین آلات</a></li>
+                        <!-- <li><a href="/alarms/">آلارم ها</a></li>
+                        <li><a href="/chats/">چت ها</a></li>
+                        <li><a href="/tasks/">وظایف</a></li> -->
+                        <li class="logout"><a href="/logout/">خروج</a></li> 
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="body">
+            <h1>کشنده ها</h1>
+            {% for truck in trucks %}
+            <div class="card">
+                <img class="profile-pic" src="{{ truck.image.url }}" alt="کشنده">
+                <p class="more-info">تاریخ اعتبار بیمه: {{ truck.end_of_insurance }}</p>
+                <p class="more-info">تاریخ اعتبار معاینه فنی: {{ truck.end_of_technical_inspection }}</p>
+                <button></button>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

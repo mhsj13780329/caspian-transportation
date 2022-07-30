@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl">
+    <head>
+        <title>{{ driver.first_name }} {{driver.last_name}}</title>
+        <link rel="stylesheet" href="{% static 'app/styles/base.css' %}">
+    </head>
+    <body>
+        <header>
+            <div class="nav-container">
+                <nav>
+                    <ul>
+                        <li><a href="/dashboard/">داشبورد</a></li>
+                        <li><a href="/drivers">رانندگان</a></li>
+                        <li><a href="/cars/">ماشین آلات</a></li>
+                        <li><a href="/cars/">آلارم ها</a></li>
+                        <li><a href="/cars/">چت ها</a></li>
+                        <li><a href="/cars/">وظایف</a></li>
+                        <li class="logout"><a href="/logout/">خروج</a></li>
+                    </ul>
+                </nav>
+
+                <!-- <img src="" alt="logo" class="logo"> --bigger projects and i have to craete a link ok?>-->
+
+            </div>
+
+        </header> 
+        <div class="body" style="padding-top: 20px;">
+            {% if driver_found %}
+            <div class="right">
+                <img src="{{ driver.image.url }}" alt="{{ driver.first_name }}" width="100">
+                <h4>{{ driver.first_name }} {{ driver.last_name }}</h4>
+                <p>راننده</p>
+            </div>
+            <div class="left">
+                <div class="info">
+                    <h3>اطلاعات</h3>
+                    <div class="info-data">
+                        <div class="data">
+                            <h4>تاریخ انقضای گواهی نامه سلامت</h4>
+                            <!-- <p>{{ driver.end_of_cerificate }}</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <p>راننده یافت نشد!</p>
+            {% endif %}
+        </div>
+    
+    </body>
+</html>

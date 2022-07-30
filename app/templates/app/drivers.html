@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl">
+    <head>
+        <title>رانندگان</title>
+        <link rel="stylesheet" href="{% static 'app/styles/base.css' %}">
+        <link rel="stylesheet" href="{% static 'app/styles/driver-card.css' %}">
+    </head>
+    <body>
+        <header>
+            <div>
+                <nav>
+                    <ul>
+                        <li><a href="/dashboard/">داشبورد</a></li>
+                        <li><a class="acitve" href="#">رانندگان</a></li>
+                        <li><a href="/cars/">ماشین آلات</a></li>
+                        <!-- <li><a href="/cars/">آلارم ها</a></li>
+                        <li><a href="/cars/">چت ها</a></li>
+                        <li><a href="/cars/">وظایف</a></li> -->
+                        <li class="logout"><a href="/logout/">خروج</a></li> 
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="body">
+            <h1>رانندگان</h1>
+                <!-- <ul class="drivers-list">                
+                        
+                </ul> -->
+                <!-- {% for driver in drivers %} -->
+                        <!-- <li class="driver"> -->
+                            <!-- <div class="card">
+                                <img src="{{ driver.image.url }}" alt="" style="width: 100%;">
+                                <h2>{{ driver.first_name }} {{ driver.last_name }}</h2>
+                                <p class="more-info">اطلاعات بیشتر</p>
+                                 <p>{{driver.end_of_certificate}}</p> 
+                                <p><button><a href="{% url 'driver-detail' driver.slug %}">ورود به صفحه راننده</a></button></p>
+                            </div> -->
+                        <!-- </li> -->
+                <!-- {% endfor %} -->
+                {% for driver in drivers %}
+                    <div class="card">
+                        <img class="profile-pic" src="{{ driver.image.url }}" alt="{{ driver.first_name }} {{driver.last_name}}">
+                        <h2>{{ driver.first_name }} {{ driver.last_name }}</h2>
+                        <p class="more-info">تاریخ اعتبار گواهی هوشمند: {{ driver.end_of_smart_license }}</p>
+                        <p class="more-info">تاریخ اعتبار گواهی بهداشت: {{ driver.end_of_hygiene_license }}</p>
+                        <p class="more-info">تاریخ اعتبار گواهی نامه: {{ driver.end_of_drivers_license }}</p>
+                        <p>{{ driver.current_date }}</p>
+                    </div>
+                {% endfor %}
+                {% for diff in diff %}
+                <p>{{ diff }}</p>
+                {% endfor %}
+                <p>{{ current_date }}</p>
+        </div>
+    </body>
+</html>
